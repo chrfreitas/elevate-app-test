@@ -8,7 +8,6 @@ class Api::AuthenticationController < ApplicationController
     end
   end
 
-
   def signin
     user = User.find_by(email: params[:email])
 
