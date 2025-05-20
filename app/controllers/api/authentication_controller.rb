@@ -1,6 +1,6 @@
 class Api::AuthenticationController < ApplicationController
   def signup
-    user = User.new(email: params[:email])
+    user = User.new(email: params[:email], password: params[:email])
 
     if user.save!
       token = Authentication::Token.encode(user_id: user.id)
