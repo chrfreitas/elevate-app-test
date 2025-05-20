@@ -1,0 +1,19 @@
+require "rails_helper"
+
+RSpec.describe Api::AuthenticationController, type: :request do
+  context "POST /api/signup" do
+    it "should create a user and return a valid token" do
+      post "/api/user", params: { email: "test@email.com", password: "Password!123"}
+      expect(response).to have_http_status(:created)
+    end
+  end
+
+  context "POST /api/sessions" do
+    it "shoudl check if the users exists and return a valid token" do
+      create(:user)
+
+      post "/api/sessions", params: { email: "user@email.com", password: "Password!123"}
+      expect(response).to have_http_status(:ok)
+    end
+  end
+end
