@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Api::AuthenticationController, type: :request do
+RSpec.describe Api::SessionController, type: :request do
   context "POST /api/sessions" do
     it "should return unauthorized status code for the invalida user" do
       create(:user)

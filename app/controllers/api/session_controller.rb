@@ -1,5 +1,5 @@
-class Api::AuthenticationController < ApplicationController
-  def signin
+class Api::SessionController < ApplicationController
+  def create
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
