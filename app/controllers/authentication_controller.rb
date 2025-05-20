@@ -1,14 +1,10 @@
 class AuthenticationController < ApplicationController
   def signup
-    # render json: { token: 'ok' }
-
     user = User.new(email: params[:email])
 
-    if !user.save
-      render json: {
-          token: 'ok'
-      }
+    if user.save!
+      token = Authentication::Token.encode(user_id: user.id)
+      render json: { token: token }, status: :created
     end
   end
 end
-
