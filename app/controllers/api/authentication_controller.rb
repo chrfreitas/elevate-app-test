@@ -16,7 +16,7 @@ class Api::AuthenticationController < ApplicationController
       token = Authentication::Token.encode(user_id: user.id)
       render json: { token: token }, status: :created
     else
-      render status: :unauthorized
+      render json: { error: "Invalid credentials" },  status: :unauthorized
     end
   end
 end
