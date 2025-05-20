@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  post '/api/user', to: "authentication#signup"
+  namespace :api do
+    post '/user', to: "authentication#signup"
+  end
 end

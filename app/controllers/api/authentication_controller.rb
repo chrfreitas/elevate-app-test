@@ -1,4 +1,4 @@
-class AuthenticationController < ApplicationController
+class Api::AuthenticationController < ApplicationController
   def signup
     user = User.new(email: params[:email])
 
@@ -8,3 +8,4 @@ class AuthenticationController < ApplicationController
     end
   end
 end
+
