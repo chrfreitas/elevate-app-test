@@ -2,8 +2,11 @@ class User < ApplicationRecord
   has_secure_password
 
   VALID_PASSWORD_REGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[[:^alnum:]])[\w[:^alnum:]]{8,}$/
+  VALID_EMAIL_REGEX = /\A[^@\s]+@[^@\s]+\.[^@\s]+\z/
 
-  validates :email, presence: true
+  validates :email, presence: true,
+                    uniqueness: true,
+                    format: { with: VALID_EMAIL_REGEX, message: 'is invalid'}
 
   validates :password, format: {
     with: VALID_PASSWORD_REGEX,
