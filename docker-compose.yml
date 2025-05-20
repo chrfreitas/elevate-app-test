@@ -19,6 +19,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=elevate-app-test
+      - SECRET_KEY=elevate-app-test
     volumes:
       - pgdata:/var/lib/postgresql/data
       
