@@ -5,4 +5,8 @@ module Authentication::Token
     payload[:exp] = exp.to_i
     JWT.encode(payload, ENV["SECRET_KEY"])
   end
+
+  def self.decode(token)
+    JWT.decode(token, ENV["SECRET_KEY"]).first
+  end
 end
