@@ -13,6 +13,7 @@ services:
       - DATABASE_URL=postgres://postgres@postgres:5432/elevate-app-test
       - SECRET_KEY=elevate-app-test
       - BILLING_API_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiaWxsaW5nIiwiaWF0IjoxNzQzMDg1NDk5LCJleHAiOm51bGwsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6ImJpbGxpbmdfY2xpZW50In0.aRwnR_QP6AlOv_JanMkbhwe9ACDcJc5184pXdR0ksXg
+      - REDIS_URL=redis://redis:6379/1
   postgres:
     image: postgres:14
     ports:
@@ -23,6 +24,27 @@ services:
       - POSTGRES_DB=elevate-app-test
     volumes:
       - pgdata:/var/lib/postgresql/data
-      
+  redis:
+    image: redis:8.0.1-alpine
+    command: redis-server
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+      - postgres
+    environment:
+      - DATABASE_URL=postgres://postgres@postgres:5432/elevate-app-test
+      - REDIS_URL=redis://redis:6379/1
+
 volumes:
   pgdata:
+  redis:
