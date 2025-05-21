@@ -12,6 +12,7 @@ services:
     environment:
       - DATABASE_URL=postgres://postgres@postgres:5432/elevate-app-test
       - SECRET_KEY=elevate-app-test
+      - BILLING_API_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiaWxsaW5nIiwiaWF0IjoxNzQzMDg1NDk5LCJleHAiOm51bGwsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6ImJpbGxpbmdfY2xpZW50In0.aRwnR_QP6AlOv_JanMkbhwe9ACDcJc5184pXdR0ksXg
   postgres:
     image: postgres:14
     ports:
