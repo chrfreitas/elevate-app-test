@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Api::UserController, type: :request do
+RSpec.describe Api::UsersController, type: :request do
   context "GET /api/user/:id" do
     context "when it didn't find a user" do
       it "returns not found status code" do

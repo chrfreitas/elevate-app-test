@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Api::SessionController, type: :request do
+RSpec.describe Api::SessionsController, type: :request do
   context "POST /api/sessions" do
     let!(:user) { create(:user) }
 
