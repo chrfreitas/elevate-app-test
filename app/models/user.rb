@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :game_events
+
   has_secure_password
 
   VALID_PASSWORD_REGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[[:^alnum:]])[\w[:^alnum:]]{8,}$/
