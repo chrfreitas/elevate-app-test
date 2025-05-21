@@ -1,0 +1,20 @@
+require "rails_helper"
+
+RSpec.describe Adapters::Http do
+  describe '#get' do
+    let(:url) { "https://api.example.com/users/1/billing" }
+    let(:token) { "12345" }
+    let(:http) { described_class.new(url: url, token: token) }
+
+    before do
+      stub_request(:get, "https://api.example.com/users/1/billing")
+        .to_return(status: 200, body: { total: 100 }.to_json, headers: { 'Content-Type' => 'application/json' })
+    end
+
+
+    it "returns " do
+      response = http.get
+      expect(response).to eq({"total"=>100})
+    end
+  end
+end

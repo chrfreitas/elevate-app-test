@@ -52,4 +52,5 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem 'shoulda-matchers', '~> 6.5.0'
+  gem 'webmock'
 end
