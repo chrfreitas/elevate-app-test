@@ -7,15 +7,9 @@ class Integrations::BillingApi
 
   def run 
     url = billing_url(@user_id)
-
-    conn = Faraday.new(url: url) do |builder|
-      builder.request :authorization, :Basic, ENV['BILLING_API_KEY']
-      builder.response :json
-    end
     
-    response = conn.get(url)
-
-    response.body
+    http = Adapters::Http.new(url: url, token: ENV['BILLING_API_KEY'])
+    http.get
   end
 
   private 
