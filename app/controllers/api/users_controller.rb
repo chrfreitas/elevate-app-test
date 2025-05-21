@@ -1,6 +1,8 @@
-class Api::UsersController < ApplicationController
+class Api::UsersController < Api::BaseController
+  before_action :authorize_request, only: [:show]
+
   def show
-    user = User.find(params[:id])
+    user = User.find(@current_user.id)
 
     if user.present?
       user_presenter = UserPresenter.new(user)

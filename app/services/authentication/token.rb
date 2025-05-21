@@ -7,6 +7,8 @@ module Authentication::Token
   end
 
   def self.decode(token)
+    return nil if token.nil?
+
     JWT.decode(token, ENV["SECRET_KEY"]).first
   end
 end

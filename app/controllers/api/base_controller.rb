@@ -8,6 +8,7 @@ class Api::BaseController < ApplicationController
   def authorize_request
     header = request.headers['Authorization']
     token = header.split(' ').last if header
+
     decoded = Authentication::Token.decode(token)
 
     if decoded
