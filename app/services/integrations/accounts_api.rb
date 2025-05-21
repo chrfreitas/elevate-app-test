@@ -9,6 +9,6 @@ class Integrations::AccountsApi
     url = "#{BASE_URL}/users/#{@user_id}/billing"
     
     http = Adapters::Http.new(url: url, token: ENV['BILLING_API_KEY'])
-    http.get.body
+    http.get[:body]
   end
 end

@@ -14,8 +14,8 @@ RSpec.describe Adapters::Http do
 
     it "returns " do
       response = http.get
-      expect(response.body).to eq({"total"=>100})
-      expect(response.status).to eq(200)
+      expect(response).to eq({:body=>{"total"=>100}, :status=>200})
+      
     end
   end
 end

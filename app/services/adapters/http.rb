@@ -8,6 +8,11 @@ class Adapters::Http
   end
 
   def get
-    @conn.get
+    response = @conn.get
+
+    {
+      status: response.status,
+      body: response.body
+    }
   end
 end
