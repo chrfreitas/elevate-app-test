@@ -1,0 +1,4 @@
+subscription_status_sync_worker:
+  cron: "* * * * *"
+  class: "SubscriptionStatusSyncWorker"
+  queue: default

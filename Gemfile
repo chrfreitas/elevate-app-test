@@ -36,6 +36,7 @@ gem 'factory_bot_rails'
 gem 'faraday', '~> 2.13.1'
 gem 'sidekiq', '~> 8.0.3'
 gem 'redis-rails'
+gem 'sidekiq-cron', '~> 2.3.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
