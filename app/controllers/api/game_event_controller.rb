@@ -1,5 +1,5 @@
 class Api::GameEventController < Api::BaseController
-  def index
+  def create
     p @current_user
   end
 end
