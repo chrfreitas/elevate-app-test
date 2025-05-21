@@ -1,6 +1,13 @@
 class Api::UserController < ApplicationController
-  def index
-    render status: :ok
+  def show
+    user = User.find(params[:id])
+
+    if user.present?
+      user_presenter = UserPresenter.new(user)
+      render json: { user: user_presenter }, status: :ok
+    else
+      render status: :not_found
+    end
   end
 
   def create
