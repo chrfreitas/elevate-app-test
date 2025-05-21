@@ -1,4 +1,8 @@
 class Api::UserController < ApplicationController
+  def index
+    render status: :ok
+  end
+
   def create
     user = User.new(email: params[:email], password: params[:password])
 
