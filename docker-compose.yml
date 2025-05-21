@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/app
     environment:
-      - DATABASE_URL=postgres://postgres@postgres:5432/elevate-app-test
+      - DATABASE_URL=postgres://postgres@postgres:5432/elevate-app-db
       - SECRET_KEY=elevate-app-test
       - ACCOUNT_API_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiaWxsaW5nIiwiaWF0IjoxNzQzMDg1NDk5LCJleHAiOm51bGwsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6ImJpbGxpbmdfY2xpZW50In0.aRwnR_QP6AlOv_JanMkbhwe9ACDcJc5184pXdR0ksXg
       - REDIS_URL=redis://redis:6379/1
@@ -21,7 +21,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=elevate-app-test
+      - POSTGRES_DB=elevate-app-db
     volumes:
       - pgdata:/var/lib/postgresql/data
   redis:
@@ -42,7 +42,7 @@ services:
       - redis
       - postgres
     environment:
-      - DATABASE_URL=postgres://postgres@postgres:5432/elevate-app-test
+      - DATABASE_URL=postgres://postgres@postgres:5432/elevate-app-db
       - REDIS_URL=redis://redis:6379/1
 
 volumes:
