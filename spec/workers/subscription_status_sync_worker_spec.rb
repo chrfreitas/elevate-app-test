@@ -14,7 +14,7 @@ RSpec.describe SubscriptionStatusSyncWorker, type: :worker do
     end
 
     context 'subscription_status has changes and the last synced was upper 24 hours' do
-      let(:user) { create(:user, id: user_id, subscription_status: "expired", subscription_status_synced_at: 25.hours.ago) }
+      let!(:user) { create(:user, id: user_id, subscription_status: "expired", subscription_status_synced_at: 25.hours.ago) }
 
       it 'updates the user\'s subscription_status with the new value' do
         expect {
@@ -24,7 +24,7 @@ RSpec.describe SubscriptionStatusSyncWorker, type: :worker do
     end
 
     context 'when the subscription_status is the same as the response from api' do
-      let(:user) { create(:user, id: 1, subscription_status: "active", subscription_status_synced_at: 25.hours.ago) }
+      let!(:user) { create(:user, id: user_id, subscription_status: "active", subscription_status_synced_at: 25.hours.ago) }
 
       it 'does not update the subscription_status' do
         expect {
@@ -34,7 +34,7 @@ RSpec.describe SubscriptionStatusSyncWorker, type: :worker do
     end
 
     context 'when the subscription_status was synced within 24 hours' do
-      let(:user) { create(:user, id: 1, subscription_status: "active", subscription_status_synced_at: 2.hours.ago) }
+      let!(:user) { create(:user, id: user_id, subscription_status: "active", subscription_status_synced_at: 2.hours.ago) }
 
       it 'does not update the subscription_status' do
         described_class.new.perform

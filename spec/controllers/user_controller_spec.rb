@@ -4,7 +4,7 @@ RSpec.describe Api::UserController, type: :request do
   context "GET /api/user/:id" do
     context "when it didn't find a user" do
       it "returns not found status code" do
-        get "/api/user/1"
+        get "/api/user/12345"
         expect(response).to have_http_status(:not_found)
       end
     end
