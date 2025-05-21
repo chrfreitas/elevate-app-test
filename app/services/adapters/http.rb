@@ -8,7 +8,6 @@ class Adapters::Http
   end
 
   def get
-    response = @conn.get
-    response.body
+    @conn.get
   end
 end
