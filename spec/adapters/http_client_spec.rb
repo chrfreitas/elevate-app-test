@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Adapters::Http do
+RSpec.describe HttpClient do
   describe '#get' do
     let(:url) { "https://api.example.com/users/1/billing" }
     let(:token) { "12345" }

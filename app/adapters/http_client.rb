@@ -1,4 +1,4 @@
-class Adapters::Http
+class HttpClient
   def initialize(url:, token:)
     @url = url
     @conn = Faraday.new(url: url) do |builder|
