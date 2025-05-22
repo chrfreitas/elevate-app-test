@@ -13,7 +13,7 @@ class Api::UsersController < Api::BaseController
   end
 
   def create
-    user = User.new(email: params[:email], password: params[:password])
+    user = User.new(user_params)
 
     if user.save
       SubscriptionStatusSyncWorker.perform_async(user.id)
@@ -23,6 +23,13 @@ class Api::UsersController < Api::BaseController
     else
       render json: { error_message: user.errors.full_messages }, status: :bad_request
     end
+  end
+
+
+  private
+
+  def user_params
+    params.permit(:email, :password)
   end
 end
 
