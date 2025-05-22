@@ -1,4 +1,4 @@
-class Integrations::AccountsApi
+class AccountsApi
   def initialize(user_id)
     @user_id = user_id
   end

@@ -5,7 +5,7 @@ class SubscriptionStatusSyncWorker
     users = get_users(user_id)
 
     users.find_each do |user|
-      billing_info = Integrations::AccountsApi.new(user.id).get_billing_info
+      billing_info = AccountsApi.new(user.id).get_billing_info
 
       if billing_info["subscription_status"] != user.subscription_status
         user.update!(subscription_status: billing_info["subscription_status"], subscription_status_synced_at: DateTime.now.utc) 

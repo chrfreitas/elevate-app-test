@@ -8,7 +8,7 @@ RSpec.describe SubscriptionStatusSyncWorker, type: :worker do
     end
 
     before do
-      allow(Integrations::AccountsApi).to receive(:new)
+      allow(AccountsApi).to receive(:new)
         .with(user_id)
         .and_return(double(get_billing_info: billing_info))
     end
@@ -39,7 +39,7 @@ RSpec.describe SubscriptionStatusSyncWorker, type: :worker do
       it 'does not update the subscription_status' do
         described_class.new.perform
 
-        expect(Integrations::AccountsApi).not_to receive(:new).with(user.id)        
+        expect(AccountsApi).not_to receive(:new).with(user.id)        
       end
     end
   end
