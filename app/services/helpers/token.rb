@@ -1,6 +1,6 @@
 require 'jwt'
 
-module Authentication::Token
+module Helpers::Token
   def self.encode(payload,  exp = 24.hours.from_now)
     payload[:exp] = exp.to_i
     JWT.encode(payload, ENV["TOKEN_SECRET_KEY"])
