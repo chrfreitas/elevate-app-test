@@ -80,7 +80,7 @@ That's quick overview of the main folders in the application:
 ## Key Assumptions
 
 - **Setup:**
-  Environment variables are incorporated into `docker-compose` to simplify setup and configuration.
+  Environment variables are incorporated into `docker compose` to simplify setup and configuration.
 
 - **Phase 1 – Sign-up and Authentication:**  
   JWT is used to encode and decode tokens.
@@ -97,5 +97,4 @@ That's quick overview of the main folders in the application:
 - Create dedicated game table to normalize game name from `game_events`.
 - Integrate an API documentation tool like **Swagger**.
 - Add test coverage tool like **SimpleCov**.
-- Add a log agregator.
 - Add a metrics and monitoring tool  as **Datadog** or **NewRelic**.
