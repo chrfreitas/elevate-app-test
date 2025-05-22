@@ -16,6 +16,8 @@ class Api::UsersController < Api::BaseController
     user = User.new(email: params[:email], password: params[:password])
 
     if user.save
+      SubscriptionStatusSyncWorker.perform_async(user.id)
+      
       token = Helpers::Token.encode(user_id: user.id)
       render json: { token: token }, status: :created
     else
