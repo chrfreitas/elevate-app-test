@@ -97,4 +97,4 @@ That's quick overview of the main folders in the application:
 - Create dedicated game table to normalize game name from `game_events`.
 - Integrate an API documentation tool like **Swagger**.
 - Add test coverage tool like **SimpleCov**.
-- Add a metrics and monitoring tool  as **Datadog** or **NewRelic**.
+- Add a metrics and monitoring tool as **Datadog** or **NewRelic**.
