@@ -4,7 +4,7 @@ RSpec.describe Api::UsersController, type: :request do
   context "GET /api/user" do
     context "when it didn't find a user" do
       it "returns not found status code" do
-        get "/api/user", headers: { "Authorization" => "Bearer #{ Helpers::Token.encode(user_id: 0)}" }
+        get "/api/user", headers: { "Authorization" => "Bearer #{ AuthToken.encode(user_id: 0)}" }
         expect(response).to have_http_status(:not_found)
       end
     end
@@ -13,12 +13,12 @@ RSpec.describe Api::UsersController, type: :request do
       let!(:user) {create(:user) }
 
       it "should return ok status code" do
-        get "/api/user", headers: { "Authorization" => "Bearer #{ Helpers::Token.encode(user_id: user.id)}" }
+        get "/api/user", headers: { "Authorization" => "Bearer #{ AuthToken.encode(user_id: user.id)}" }
         expect(response).to have_http_status(:ok)
       end
 
       it "should return the user object" do
-        get "/api/user", headers: { "Authorization" => "Bearer #{ Helpers::Token.encode(user_id: user.id)}" }
+        get "/api/user", headers: { "Authorization" => "Bearer #{ AuthToken.encode(user_id: user.id)}" }
 
         json = JSON.parse(response.body)
 

@@ -9,7 +9,7 @@ class Api::BaseController < ApplicationController
     header = request.headers['Authorization']
     token = header.split(' ').last if header
 
-    decoded = Helpers::Token.decode(token)
+    decoded = AuthToken.decode(token)
 
     if decoded
       @current_user = User.find(decoded["user_id"])

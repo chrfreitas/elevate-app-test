@@ -17,8 +17,8 @@ class Api::UsersController < Api::BaseController
 
     if user.save
       SubscriptionStatusSyncWorker.perform_async(user.id)
-      
-      token = Helpers::Token.encode(user_id: user.id)
+
+      token = AuthToken.encode(user_id: user.id)
       render json: { token: token }, status: :created
     else
       render json: { error_message: user.errors.full_messages }, status: :bad_request
