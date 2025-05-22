@@ -11,11 +11,8 @@ class Api::BaseController < ApplicationController
 
     begin
       decoded = AuthToken.decode(token)
-    rescue AuthToken::InvalidToken
-      render json: { error: 'Invalid token' }, status: :unauthorized
-      return
-    rescue AuthToken::ExpiredToken
-      render json: { error: 'Token has expired' }, status: :unauthorized
+    rescue AuthToken::InvalidToken, AuthToken::ExpiredToken => e
+      render json: { error: e.message }, status: :unauthorized
       return
     end
 
