@@ -79,16 +79,23 @@ That's quick overview of the main folders in the application:
 
 ## Key Assumptions
 
-- **Setup** 
+- **Setup:**
   Environment variables are incorporated into `docker-compose` to simplify setup and configuration.
 
 - **Phase 1 – Sign-up and Authentication:**  
-  JWT is used to encode and decode tokens exchanged with the client.
+  JWT is used to encode and decode tokens.
 
 - **Phase 3 – User Details and Stats:**  
   The `total_games_played` value is calculated by counting the user’s `game_event` records.
 
 - **Phase 4 – User Subscription Status:**  
-  The `subscription_status` is set during user creation or updated by a cron job that runs every 2 hours.
+  The `subscription_status` is set during user creation or updated by a cron job that runs every 2 hours to keep the database as consistent as possible.
 
 
+## Next improvements
+
+- Create dedicated game table to normalize game name from `game_events`.
+- Integrate an API documentation tool like **Swagger**.
+- Add test coverage tool like **SimpleCov**.
+- Add a log agregator.
+- Add a metrics and monitoring tool  as **Datadog** or **NewRelic**.
