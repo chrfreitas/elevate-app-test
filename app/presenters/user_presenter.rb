@@ -16,8 +16,7 @@ class UserPresenter
 
   def stats
     {
-      total_games_played: 10
+      total_games_played: @user.game_events.count
     }
   end
-
 end

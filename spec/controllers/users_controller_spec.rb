@@ -27,7 +27,7 @@ RSpec.describe Api::UsersController, type: :request do
             "id" => user.id,
             "email" => user.email,
             "stats" => {
-              "total_games_played" => 10
+              "total_games_played" => 0
             },
             "subscription_status" => nil
           }
