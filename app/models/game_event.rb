@@ -3,5 +3,5 @@ class GameEvent < ApplicationRecord
 
   EVENT_TYPES = %w(COMPLETED)
 
-  validates :event_type, inclusion: { in: EVENT_TYPES, message: "%{value} is not a valid value" }
+  validates :event_type, inclusion: { in: EVENT_TYPES }
 end
