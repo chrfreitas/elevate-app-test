@@ -66,4 +66,16 @@ RAILS_ENV=test rails db:migrate
 rspec
 ```
 
-PS: The test folder follows the same structure of the `/app`. In other words, every controller should have a file into the spec folder (i.e `/spec/controllers/user_controller_spec.rb`)
+## Project Structure
+That's quick overview of the main folders in the application:
+
+- `/adapters` – Wraps third-party libraries to separate them from the codebase.
+- `/controllers` – Handles HTTP requests.
+- `/integrations` – Contains external API clients (e.g. for payment providers or other services).
+- `/models` – Defines ActiveRecord models.
+- `/presenters` – Prepares and formats data for the API responses, controlling what is exposed to the client.
+- `/services` – Contains reusable service classes.
+- `/workers` – Asynchronous background jobs processed by Sidekiq.
+
+
+
