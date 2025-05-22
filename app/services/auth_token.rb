@@ -18,10 +18,10 @@ module AuthToken
 
     begin
       JWT.decode(token, ENV["TOKEN_SECRET_KEY"]).first
-    rescue JWT::DecodeError
-      raise InvalidToken, "Invalid token"
     rescue JWT::ExpiredSignature
       raise ExpiredToken, "Token has expired"
+    rescue JWT::DecodeError
+      raise InvalidToken, "Invalid token"
     end
   end
 end
