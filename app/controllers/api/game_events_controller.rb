@@ -6,7 +6,7 @@ class Api::GameEventsController < Api::BaseController
     if game_event.save
       render status: :created
     else
-      render json: { error_message: user.errors.full_messages }, status: :bad_request
+      render json: { error_message: game_event.errors.full_messages }, status: :bad_request
     end
   end
 end
