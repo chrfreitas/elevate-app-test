@@ -52,3 +52,18 @@ rails db:migrate
 
 ### 5. Done!
 The server should now be running at: http://localhost:3000
+
+
+## Testing
+In other to execute all of them just run into the container the following commands:
+
+
+```bash
+docker compose exec app bash
+RAILS_ENV=test rails db:create
+RAILS_ENV=test rails db:migrate
+
+rspec
+```
+
+PS: The test folder follows the same structure of the `/app`. In other words, every controller should have a file into the spec folder (i.e `/spec/controllers/user_controller_spec.rb`)
