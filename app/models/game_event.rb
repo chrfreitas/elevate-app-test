@@ -1,5 +1,7 @@
 class GameEvent < ApplicationRecord
   belongs_to :user
 
-  validates :event_type, inclusion: { in: %w(COMPLETED), message: "%{value} is not a valid value" }
+  EVEN_TYPES = %w(COMPLETED)
+
+  validates :event_type, inclusion: { in: EVEN_TYPES, message: "%{value} is not a valid value" }
 end
