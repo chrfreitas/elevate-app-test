@@ -8,8 +8,8 @@ class SubscriptionStatusSyncWorker
       billing_info = AccountsApi.new(user.id).get_billing_info
 
       if billing_info["error"]
-        Rails.logger.error "Failed to fetch data for user #{user.id} via AccountsApi" 
-        return;
+        Rails.logger.error "Failed to fetch data for user #{user.id} via AccountsApi"
+        return
       end
 
       if billing_info["subscription_status"] != user.subscription_status

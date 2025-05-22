@@ -1,10 +1,10 @@
 require "rails_helper"  # or just `require "spec_helper"` if standalone
 require "jwt"
 
-RSpec.describe AuthToken do  
+RSpec.describe AuthToken do
   let(:payload) { { user_id: 123 } }
 
-  describe "#decode" do 
+  describe "#decode" do
     it "returns nil when pass a nil as parameter" do
       expect(AuthToken.decode(nil)).to be_nil
     end
