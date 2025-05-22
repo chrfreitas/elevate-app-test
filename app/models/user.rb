@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :password, format: {
     with: VALID_PASSWORD_REGEX,
-    message: "must include: 1 uppercase, 1 lowercase, 1 digit and 1 special character",
+    message: "must one uppercase letter, one lowercase letter, one number, and one special symbol (like !, @, or #).",
     multiline: true
   }, allow_nil: true
 end
