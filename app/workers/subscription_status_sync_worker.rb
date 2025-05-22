@@ -7,7 +7,7 @@ class SubscriptionStatusSyncWorker
       24.hours.ago
     )
 
-    users.each do |user|
+    users.find_each do |user|
       billing_info = Integrations::AccountsApi.new(user.id).get_billing_info
 
       if billing_info["subscription_status"] != user.subscription_status
