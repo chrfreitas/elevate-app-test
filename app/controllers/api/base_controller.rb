@@ -9,7 +9,15 @@ class Api::BaseController < ApplicationController
     header = request.headers["Authorization"]
     token = header.split(" ").last if header
 
-    decoded = AuthToken.decode(token)
+    begin
+      decoded = AuthToken.decode(token)
+    rescue AuthToken::InvalidToken
+      render json: { error: 'Invalid token' }, status: :unauthorized
+      return
+    rescue AuthToken::ExpiredToken
+      render json: { error: 'Token has expired' }, status: :unauthorized
+      return
+    end
 
     if decoded
       @current_user = User.find(decoded["user_id"])
