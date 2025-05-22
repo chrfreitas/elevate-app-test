@@ -39,7 +39,7 @@ RSpec.describe SubscriptionStatusSyncWorker, type: :worker do
       it 'does not update the subscription_status' do
         described_class.new.perform
 
-        expect(AccountsApi).not_to receive(:new).with(user.id)        
+        expect(AccountsApi).not_to receive(:new).with(user.id)
       end
     end
   end

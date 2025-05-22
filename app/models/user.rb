@@ -8,11 +8,11 @@ class User < ApplicationRecord
 
   validates :email, presence: true,
                     uniqueness: true,
-                    format: { with: VALID_EMAIL_REGEX, message: 'is invalid'}
+                    format: { with: VALID_EMAIL_REGEX, message: "is invalid" }
 
   validates :password, format: {
     with: VALID_PASSWORD_REGEX,
-    message: 'must include: 1 uppercase, 1 lowercase, 1 digit and 1 special character',
+    message: "must include: 1 uppercase, 1 lowercase, 1 digit and 1 special character",
     multiline: true
   }, allow_nil: true
 end

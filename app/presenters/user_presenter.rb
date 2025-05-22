@@ -12,7 +12,7 @@ class UserPresenter
     }
   end
 
-  private 
+  private
 
   def stats
     {

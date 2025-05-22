@@ -8,7 +8,7 @@ class SubscriptionStatusSyncWorker
       billing_info = AccountsApi.new(user.id).get_billing_info
 
       if billing_info["subscription_status"] != user.subscription_status
-        user.update!(subscription_status: billing_info["subscription_status"], subscription_status_synced_at: DateTime.now.utc) 
+        user.update!(subscription_status: billing_info["subscription_status"], subscription_status_synced_at: DateTime.now.utc)
 
         p "User #{user.id} was updated!"
       end
@@ -21,7 +21,7 @@ class SubscriptionStatusSyncWorker
     user_id ?
       User.where(id: user_id) :
       User.where(
-        'subscription_status_synced_at IS NULL OR subscription_status_synced_at < ?',
+        "subscription_status_synced_at IS NULL OR subscription_status_synced_at < ?",
         24.hours.ago
       )
   end

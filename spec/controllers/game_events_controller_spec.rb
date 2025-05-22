@@ -14,7 +14,6 @@ RSpec.describe Api::GameEventsController, type: :request do
 
     context 'when params are valid' do
       it 'creates a GameEvent and returns status 201' do
-        
         expect {
           post '/api/user/game_events', headers: { "Authorization" => "Bearer #{ AuthToken.encode(user_id: user.id)}" }, params: params
         }.to change(GameEvent, :count).by(1)

@@ -14,8 +14,7 @@ RSpec.describe HttpClient do
 
     it "returns a hash with the body and status code" do
       response = http.get
-      expect(response).to eq({:body=>{"total"=>100}, :status=>200})
-      
+      expect(response).to eq({ body: { "total"=>100 }, status: 200 })
     end
   end
 end

@@ -1,4 +1,4 @@
-require 'jwt'
+require "jwt"
 
 module AuthToken
   module_function

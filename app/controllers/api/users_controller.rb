@@ -1,5 +1,5 @@
 class Api::UsersController < Api::BaseController
-  before_action :authorize_request, only: [:show]
+  before_action :authorize_request, only: [ :show ]
 
   def show
     user = User.find(@current_user.id)
@@ -32,4 +32,3 @@ class Api::UsersController < Api::BaseController
     params.permit(:email, :password)
   end
 end
-

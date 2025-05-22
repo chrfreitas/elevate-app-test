@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'validations' do
     it { should allow_value('me@email.com').for(:email) }
-    it { 
+    it {
       create(:user)
       should validate_uniqueness_of(:email)
     }
