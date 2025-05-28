@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_22_123622) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_28_203813) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -31,6 +31,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_123622) do
     t.datetime "updated_at", null: false
     t.string "subscription_status"
     t.datetime "subscription_status_synced_at"
+    t.integer "current_streak_in_days", default: 0, null: false
+    t.datetime "current_streak_in_days_at"
   end
 
   add_foreign_key "game_events", "users"
